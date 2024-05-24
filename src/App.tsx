@@ -1,9 +1,14 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LandingPage from "./Views/LandingPage";
+
 function App() {
-    return (
-        <>
-            <h1>hello</h1>
-        </>
-    );
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <LandingPage />,
+        },
+    ]);
+    return <RouterProvider router={router} />;
 }
 
 export default App;
