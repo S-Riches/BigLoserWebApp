@@ -4,6 +4,6 @@ currently a prototype, no styling done yet as im going off the functionality fir
 
 packages used (subject to change):
 
--   typescript
--   jest
--   react
+- typescript
+- vitest
+- react
