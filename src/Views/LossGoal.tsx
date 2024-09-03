@@ -64,7 +64,14 @@ const LossGoal = () => {
         <option value="normal">0.5kg</option>
         <option value="extreme">1kg</option>
       </select>
-      <h2>Your daily calorie target is: {calorieDeficit}</h2>
+      {calorieDeficit > 0 && (
+        <div>
+          <h2>Your daily calorie target is: {calorieDeficit}</h2>
+          <button onClick={() => (window.location.href = "/track")}>
+            Next Page
+          </button>
+        </div>
+      )}
       {isVeryLow && (
         <h3>
           As your Target calorie goal is below 1,500kcals - please either
