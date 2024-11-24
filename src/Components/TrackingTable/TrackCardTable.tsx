@@ -1,29 +1,24 @@
-import { useState } from "react";
-
-interface itemsArray {
-  items?: string[];
+interface Props {
+  items: string[];
+  setItemState: (items: string[]) => void;
 }
-const TrackCardTable = ({ items }: itemsArray) => {
-  const [localItemState, setLocalItemState] = useState<string[]>(items || []);
+const TrackCardTable = ({ items, setItemState }: Props) => {
   return (
     <>
-      <table data-testid="trackTable">
+      <table data-testid="trackTable" className="table">
         <thead>
           <tr>
-            <th>Items</th>
+            <th>Items:</th>
           </tr>
         </thead>
         <tbody>
-          {localItemState?.map((item: string, index: number) => (
+          {items?.map((item: string, index: number) => (
             <tr key={index}>
               <td>{item}</td>
               <button
+                className="btn"
                 onClick={() =>
-                  setLocalItemState(
-                    localItemState.filter(
-                      (item) => item === localItemState[index],
-                    ),
-                  )
+                  setItemState(items.filter((item) => item === items[index]))
                 }
               >
                 X
