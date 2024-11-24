@@ -25,4 +25,3 @@ todo:
   - make a call to the recipe endpoint
   - return batch cook recipe ideas
   - display item cards that can be expanded
--
