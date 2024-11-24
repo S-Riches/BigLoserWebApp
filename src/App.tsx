@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./Views/LandingPage";
 import LossGoal from "./Views/LossGoal";
 import TrackPage from "./Views/TrackPage";
+import "./styles/globals.css";
 
 function App() {
   const router = createBrowserRouter([

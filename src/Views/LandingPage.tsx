@@ -17,27 +17,37 @@ const LandingPage = () => {
 
   return (
     <div>
-      <h1>Welcome to Big Loser</h1>
-      <input
-        type="number"
-        placeholder="Age"
-        onChange={(event) => setAge(Number(event.target.value))}
-      />
-      <input
-        type="text"
-        placeholder="Weight (KG)"
-        onChange={(event) => setWeight(Number(event.target.value))}
-      />
-      <input
-        type="text"
-        placeholder="Height (CM)"
-        onChange={(event) => setHeight(Number(event.target.value))}
-      />
-      <select onChange={(event) => setSex(event.target.value)}>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      <button onClick={onClick}>Go</button>
+      <h1 className="text-3xl font-bold underline">Welcome to Big Loser</h1>
+      <div>
+        <input
+          className="input grid input-bordered w-full max-w-xs"
+          type="number"
+          placeholder="Age"
+          onChange={(event) => setAge(Number(event.target.value))}
+        />
+        <input
+          className="input grid input-bordered w-full max-w-xs"
+          type="text"
+          placeholder="Weight (KG)"
+          onChange={(event) => setWeight(Number(event.target.value))}
+        />
+        <input
+          className="input grid input-bordered w-full max-w-xs"
+          type="text"
+          placeholder="Height (CM)"
+          onChange={(event) => setHeight(Number(event.target.value))}
+        />
+        <select
+          onChange={(event) => setSex(event.target.value)}
+          className="select grid select-bordered w-full max-w-xs"
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <button onClick={onClick} className="btn">
+        Go
+      </button>
     </div>
   );
 };

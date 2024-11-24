@@ -29,13 +29,20 @@ const LossGoal = () => {
   );
 
   return (
-    <div>
-      <h1>Loss Goal</h1>
-      <h3>Based on your BMR, you can set your loss goal</h3>
-      <h4>Your BMR = {bmrCookie}</h4>
-      <h4>what level of Exercise a week?</h4>
+    <div className="place-content-center">
+      <article className="prose lg:prose-md">
+        <h2>Loss Goal</h2>
+        <p>
+          Based on your BMR, you can set your loss goal:
+          <strong> BMR = {bmrCookie}</strong>
+        </p>
+      </article>
+      <div className="label">
+        <label>What level of Exercise a week?</label>
+      </div>
       <select
         name="activity level"
+        className="select select-bordered"
         onChange={(event) => {
           setActivityLevel(event.target.value);
         }}
@@ -48,35 +55,49 @@ const LossGoal = () => {
         </option>
         <option value="daily">daily (intense exercise daily)</option>
       </select>
-      <h3>Maintenance calories a week: {maintenanceCalories}</h3>
-      <h4>How much body fat to lose a week?</h4>
-      <h5>
-        a kilogram of body fat is made up of 7,700kcals. to lose that in a week
-        you would need to lower your calorie intake by 1100kcals a day
-      </h5>
-      <select
-        name="fat loss each week"
-        onChange={(event) => {
-          setFatLossPerWeek(event.target.value);
-        }}
-      >
-        <option value="relaxed">0.25kg</option>
-        <option value="normal">0.5kg</option>
-        <option value="extreme">1kg</option>
-      </select>
+      <article className="prose md:prose-md">
+        <h3>
+          Maintenance calories a week: <strong>{maintenanceCalories}</strong>
+        </h3>
+        <div className="label">
+          <label>How much body fat to lose a week?</label>
+        </div>
+        <select
+          className="select select-bordered"
+          name="fat loss each week"
+          onChange={(event) => {
+            setFatLossPerWeek(event.target.value);
+          }}
+        >
+          <option value="relaxed">0.25kg</option>
+          <option value="normal">0.5kg</option>
+          <option value="extreme">1kg</option>
+        </select>
+        <p>
+          A kilogram of body fat is made up of 7,700kcals. to lose that in a
+          week you would need to lower your calorie intake by 1100kcals a day
+        </p>
+      </article>
       {calorieDeficit > 0 && (
-        <div>
-          <h2>Your daily calorie target is: {calorieDeficit}</h2>
-          <button onClick={() => (window.location.href = "/track")}>
+        <article className="prose">
+          <h3>
+            Your daily calorie target is: <strong>{calorieDeficit}</strong>
+          </h3>
+          <button
+            onClick={() => (window.location.href = "/track")}
+            className="btn"
+          >
             Next Page
           </button>
-        </div>
+        </article>
       )}
       {isVeryLow && (
-        <h3>
-          As your Target calorie goal is below 1,500kcals - please either
-          reconsider your goal, or speak to a professional nutritionist.
-        </h3>
+        <article className="prose md:prose-md">
+          <h3>
+            As your Target calorie goal is below 1,500kcals - please either
+            reconsider your goal, or speak to a professional nutritionist.
+          </h3>
+        </article>
       )}
     </div>
   );

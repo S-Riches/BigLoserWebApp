@@ -1,12 +1,7 @@
 import TrackCardTable from "../TrackingTable/TrackCardTable";
 import { useState } from "react";
 
-interface AddItemModalProps {
-  isOpen: boolean;
-  handleClose: () => void;
-}
-
-const AddItemModal = ({ isOpen, handleClose }: AddItemModalProps) => {
+const AddItemModal = () => {
   const [itemList, setItemList] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -16,11 +11,16 @@ const AddItemModal = ({ isOpen, handleClose }: AddItemModalProps) => {
   };
 
   return (
-    <div>
-      <modal open={isOpen} onClose={handleClose}>
+    <dialog id="my_modal_1">
+      <div className="modal-box">
         <div>
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           <h1>Add Item</h1>
-          <Input
+          <input
             data-testid="itemInput"
             placeholder="Item Name"
             value={inputValue}
@@ -29,13 +29,10 @@ const AddItemModal = ({ isOpen, handleClose }: AddItemModalProps) => {
           <button data-testid="submitButton" onClick={() => handleAddItem()}>
             Add
           </button>
-          <button data-testid="cancelButton" onClick={handleClose}>
-            Cancel
-          </button>
           <TrackCardTable items={itemList} />
         </div>
-      </modal>
-    </div>
+      </div>
+    </dialog>
   );
 };
 

@@ -8,15 +8,17 @@ interface Props {
 }
 
 const TrackCard = ({ mealOccasion, calorieTarget, items }: Props) => {
-  const [open, setOpen] = useState(false);
-
   return (
     <div data-testid="trackCard">
-      <AddItemModal handleClose={() => setOpen(false)} isOpen={open} />
+      <AddItemModal />
       <h1>{mealOccasion || "Meal"}</h1>
       <h3>{calorieTarget || 0}</h3>
       <TrackCardTable items={items || []} />
-      <button data-testid="addItemButton" onClick={() => setOpen(true)}>
+      <button
+        data-testid="addItemButton"
+        onClick={() => document.getElementById("addItemModal").showModal()}
+        className="btn"
+      >
         Add Item
       </button>
     </div>
